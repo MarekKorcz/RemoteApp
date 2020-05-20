@@ -1,0 +1,8 @@
+// gets process id by command line (process_name) - ex. 'node grazyna.js'
+pgrep -f '<process_name>'
+
+// kills process that is going on
+kill $(pgrep -f '<process_name>')
+
+// gets process by process id
+ps -f -p <process_id>
