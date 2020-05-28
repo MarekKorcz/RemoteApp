@@ -1,3 +1,5 @@
+https://www.monolit-it.pl/2018/10/Czas-na-moment-js
+
 
 function life() {
 
