@@ -2,9 +2,10 @@
   "name": "remoteapp",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -12,6 +13,14 @@
   },
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.16",
+    "puppeteer": "^5.2.0"
+  },
   "bugs": {
     "url": "https://github.com/MarekKorcz/RemoteApp/issues"
   },

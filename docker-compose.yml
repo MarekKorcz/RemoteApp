@@ -1,0 +1,29 @@
+version: '3'
+
+services: 
+    app:
+        container_name: remote_app
+        restart: always
+        build: .
+        ports: 
+            - '90:6000'
+        links: 
+            - mongo
+        environment:
+            - "DB=${DB}"
+            - "DB_NAME=${DB_NAME}"
+            - "DB_APP_NAME=${DB_APP_NAME}"
+            - "DB_PORT=${DB_PORT}"
+            - "APP_PORT=${APP_PORT}"
+        volumes:
+            - ~/Public/RemoteApp:/app:rw
+            - /app/node_modules
+    mongo:
+        container_name: mongo_remote
+        image: mongo
+        ports: 
+            - '90:6000'
+        ports: 
+            - '27017:27017'
+        volumes:
+            - ~/Public/RemoteApp/data:/data/db:rw
