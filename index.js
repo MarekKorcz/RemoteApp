@@ -28,7 +28,18 @@
 //     console.log(exec(`pgrep -f ${commandLine}`))
 // })
 
+const deezer = require('./bots/deezer');
+
 (async () => {
 
-    
+    try {
+        
+        await deezer.initialize()
+
+        // debugger
+        
+    } catch(err) {
+
+        console.log(err)
+    }
 })()

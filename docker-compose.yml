@@ -6,9 +6,9 @@ services:
         restart: always
         build: .
         ports: 
-            - '90:6000'
-        links: 
-            - mongo
+            - '90:3000'
+        # links: 
+        #     - mongo
         environment:
             - "DB=${DB}"
             - "DB_NAME=${DB_NAME}"
@@ -18,12 +18,20 @@ services:
         volumes:
             - ~/Public/RemoteApp:/app:rw
             - /app/node_modules
-    mongo:
-        container_name: mongo_remote
-        image: mongo
-        ports: 
-            - '90:6000'
-        ports: 
-            - '27017:27017'
-        volumes:
-            - ~/Public/RemoteApp/data:/data/db:rw
+        privileged: true
+    # mongo:
+    #     container_name: mongo_remote
+    #     image: mongo
+    #     ports: 
+    #         - '90:6000'
+    #     ports: 
+    #         - '27017:27017'
+    #     volumes:
+    #         - ~/Public/RemoteApp/data:/data/db:rw
+
+
+
+
+# wygląda na to, że chrom ani chromium nie jest instalowany.
+# próbowałem zrobić to w Dockerfile'u ale nie działało (niby apt mu nie pasuje (apt-get też))
+# pózniej próbowałem w kontenerze już po jego stworzeniu ale przy wget było, że Permission Denied
